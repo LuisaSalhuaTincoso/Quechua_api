@@ -2,8 +2,8 @@ var mongoose = require( 'mongoose' );
 
 //Word for searching
 var WordSchema = new mongoose.Schema({
-    name_Spanish: { type: String, required: true},
-    name_Quechua: { type: String, required: true },
+    name_Spanish: { type: String, index:{unique:true}, required: true},
+    name_Quechua: [{ type: String, required: true }],
     name_English: { type: String, required: true },
     name_mean:{type: String},
     kind_word:{type: String, required:true},

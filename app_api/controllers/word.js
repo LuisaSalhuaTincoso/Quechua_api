@@ -23,11 +23,28 @@ module.exports.WordListById = function(req,res){
         });
 }
 
+module.exports.WordListByCategory = function(req,res){
+    dictionary
+        .find({category:req.params.categoryname})
+        .exec(function(err, word) {
+            if (!word) {
+                sendJsonResponse(res, 404, {
+                    "message": "words not found"}
+                    );
+                return;
+            } else if (err) {
+                sendJsonResponse(res, 404, err);
+                return;
+            }
+            sendJsonResponse(res, 200, word);
+        });
+}
+
 
 module.exports.WordReadOne = function(req, res) {
-    if (req.params && req.params.wordname) {
+    if (req.params.wordname) {
         dictionary
-            .find(req.params.wordname)
+            .find({name_Spanish:req.params.wordname})
             .exec(function(err, word) {
                 console.log("where is");
                 if (!word) {
@@ -80,53 +97,51 @@ module.exports.WordUpdateOne = function(req, res) {
     }
 
    dictionary
-        .find(req.params.wordname)
+        .find({name_Spanish:req.params.wordname})
         .select('-comments')
         .exec(
             function(err, word) {
                 if (!word) {
-                    sendJsonResponse(res, 404, {
-                        "message": "wordname not found"}
-                        );
+                    sendJsonResponse(res, 404, {"message": "wordname not found"});
                     return;
                 } else if (err) {
                     sendJsonResponse(res, 400, err);
                     return;
                 }
-                word.name_Spanish= req.body.name_Spanish;
-                word.name_Quechua= req.body.name_Quechua;
-                word.name_English= req.body.name_English;
-                word.name_mean= req.body.name_mean;
-                word.kind_word= req.body.kind_word;
-                word.category= req.body.category;
-                word.level= req.body.level;
-
-
-                word.save(function(err, word) {
+                word[0].name_Spanish= req.body.name_Spanish;
+                word[0].name_Quechua= req.body.name_Quechua;
+                word[0].name_English= req.body.name_English;
+                word[0].name_mean= req.body.name_mean;
+                word[0].kind_word= req.body.kind_word;
+                word[0].category= req.body.category;
+                word[0].level= req.body.level;
+                console.log(word[0]);
+                word[0].save(function(err, word) {
                     if (err) {
                         sendJsonResponse(res, 404, err);
                     } else {
                         sendJsonResponse(res, 200, word);
                     }
                 });
-        }
+
+            }
     );
 };
 
 
 module.exports.WordDeleteOne = function(req, res) {
-    var wordname = req.params.wordname;
+    var wordname =req.params.wordname;
 
     if (wordname) {
-       Blog
-            .findByIdAndRemove(wordname)
+       dictionary
+            .remove({name_Spanish:req.params.wordname})
             .exec(
                 function(err, word) {
                     if (err) {
                         sendJsonResponse(res, 404, err);
                         return;
                     }
-                    sendJsonResponse(res, 204, null);
+                    sendJsonResponse(res, 204, "Palabra eliminada");
                 }
             );
     } else {

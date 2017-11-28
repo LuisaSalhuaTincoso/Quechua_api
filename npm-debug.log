@@ -7,8 +7,8 @@
 6 silly lifecycle QUECHUADICTIONARY@0.0.1~prestart: no script for prestart, continuing
 7 info lifecycle QUECHUADICTIONARY@0.0.1~start: QUECHUADICTIONARY@0.0.1
 8 verbose lifecycle QUECHUADICTIONARY@0.0.1~start: unsafe-perm in lifecycle true
-9 verbose lifecycle QUECHUADICTIONARY@0.0.1~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/luma/Escritorio/Plataformas/Chrome_Extension_Quechua/node_modules/.bin:/usr/local/heroku/bin:/home/luma/bin:/home/luma/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/NuSMV-2.5.4-x86_64-unknown-linux-gnu/bin:/opt/NuSMV-2.5.4-x86_64-unknown-linux-gnu/share/nusmv
-10 verbose lifecycle QUECHUADICTIONARY@0.0.1~start: CWD: /home/luma/Escritorio/Plataformas/Chrome_Extension_Quechua
+9 verbose lifecycle QUECHUADICTIONARY@0.0.1~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/luma/Escritorio/Chrome_Extension_Quechua/node_modules/.bin:/usr/local/heroku/bin:/home/luma/bin:/home/luma/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/NuSMV-2.5.4-x86_64-unknown-linux-gnu/bin:/opt/NuSMV-2.5.4-x86_64-unknown-linux-gnu/share/nusmv
+10 verbose lifecycle QUECHUADICTIONARY@0.0.1~start: CWD: /home/luma/Escritorio/Chrome_Extension_Quechua
 11 silly lifecycle QUECHUADICTIONARY@0.0.1~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle QUECHUADICTIONARY@0.0.1~start: Returned: code: 1  signal: null
 13 info lifecycle QUECHUADICTIONARY@0.0.1~start: Failed to exec start script
@@ -23,7 +23,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:821:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid QUECHUADICTIONARY@0.0.1
-16 verbose cwd /home/luma/Escritorio/Plataformas/Chrome_Extension_Quechua
+16 verbose cwd /home/luma/Escritorio/Chrome_Extension_Quechua
 17 error Linux 4.4.0-98-generic
 18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 19 error node v4.2.6
